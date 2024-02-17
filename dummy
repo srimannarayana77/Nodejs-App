@@ -1,0 +1,92 @@
+
+// exports.getAllUsers = async (req, res) => {
+//     try {
+//         const users = await User.find();
+//         res.status(200).json(users);
+//     } catch (error) {
+//         console.error('Error retrieving users:', error);
+//         res.status(500).json({ error: 'Internal server error' });
+//     }
+// }; 
+// exports.getAllUsers = async (req, res) => {
+//     try {
+//         const page = parseInt(req.query.page) || 1; 
+//         const pageSize = parseInt(req.query.pageSize) || 3; 
+        
+//         const filters = userFilters(req.query);
+
+//         const skip = (page - 1) * pageSize
+//         const users = await User.find().skip(skip).limit(pageSize);
+//         res.status(200).json(users);
+//     } catch (error) {
+//         console.error('Error retrieving users:', error);
+//         res.status(500).json({ error: 'Internal server error' });  
+//     } 
+// };
+
+
+// exports.getAllUsers = async (req, res) => {
+//     try {
+//         const users = await User.find();
+         
+//         const sortBy = req.query.sortBy || 'name';
+//         const sortType = req.query.sortType || 'asc'; 
+
+//         const filteredUser = await userFilters(users,req.params)
+//         const userSort = sortUsers(sortBy, sortType,filteredUser)
+//         const paginateUsers = paginationResponse(userSort,req)
+//         res.status(200).json(paginateUsers);
+//     } catch (error) {
+//         console.error('Error retrieving and sorting users:', error);
+//         res.status(500).json({ error: 'Internal server error' });
+//     }
+// };
+
+
+// exports.getAllUsers = async (req, res) => {
+//     try {
+//         let filter = {};
+//         if (req.query.filter) {
+//             filter = JSON.parse(req.query.filter);
+//         }
+//         const sort = req.query.sort || 'name';
+//         const sortOrder = req.query.sortOrder || 'desc'; 
+//         const page = parseInt(req.query.page) || 1; 
+//         const limit = parseInt(req.query.limit) || 5;
+//         const skip = (page - 1) * limit;
+
+//         const query = User.find(filter)
+//             .sort({ [sort]: sortOrder })
+//             .skip(skip)
+//             .limit(limit);
+
+//         const users = await query.exec();
+//         const total = await User.countDocuments(filter);
+
+//         res.status(200).json({pagination: {page,limit,total},users });
+//     } catch (error) {
+//         console.error('Error retrieving users:', error);
+//         res.status(500).json({ error: 'Internal server error' });
+//     }
+// };
+
+
+
+
+// exports.getAllUsers = async (req, res) => {
+//     try {
+//         const users = await User.find();
+//         console.log("users=",users)
+         
+//         const sortBy = req.query.sortBy || 'name';
+//         const sortType = req.query.sortType || 'asc'; 
+
+//         const filteredUser = await userFilters(users,req.params)
+//         const userSort = sortUsers(sortBy, sortType,filteredUser) 
+//         const paginateUsers = paginationResponse(userSort,req)
+//         res.status(200).json(paginateUsers);
+//     } catch (error) {
+//         console.error('Error retrieving and sorting users:', error);
+//         res.status(500).json({ error: 'Internal server error' });
+//     }
+// };
